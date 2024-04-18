@@ -1,5 +1,3 @@
-# hi im a make file
-
 BUILD_DIR := build
 
 CC := gcc
