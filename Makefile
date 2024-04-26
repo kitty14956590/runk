@@ -14,7 +14,10 @@ OBJECTS=$(patsubst src/%.c,$(BUILD_DIR)/%.o,$(SOURCES))
 
 OUTPUT := runk.a
 
-default: mkdir build
+TEST_PROGRAM := main.c
+TEST_OUTPUT := main
+
+default: mkdir build test
 
 mkdir:
 	mkdir -p ${BUILD_DIR}
@@ -27,3 +30,6 @@ build: ${OBJECTS}
 
 clean:
 	rm -rf ${BUILD_DIR} ${OUTPUT}
+
+test:
+	 $(CC) $(CCFLAGS) ${TEST_PROGRAM} ${OUTPUT} -o ${TEST_OUTPUT}
